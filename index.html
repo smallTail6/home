@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>蒋伟的个人简历</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-select:0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta itemprop="name" content=" 个人简历 ">
+    <meta name="description" itemprop="description" content="">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="fonticon/css/all.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/tools.js"></script>
+
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="topbar-warpper">
+        <div class="top-bar">
+            <div class="menu">
+                <div>
+                    <a href="#"><img src="img/menu-i.png" alt=""></a>
+                </div>
+                <ul class="item">
+                    <li><i class="fas fa-times"></i></li>
+                    <li>
+                        <a href="#home" id=home>Home</a>
+                        <a href="#home" class="base">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                        <a href="#about" class="base">About</a>
+                    </li>
+                    <li>
+                        <a href="#Services">Services</a>
+                        <a href="#Services" class="base">Services</a>
+                    </li>
+                    <li>
+                        <a href="#Experience">Experience</a>
+                        <a href="#Experience" class="base">Experience</a>
+                    </li>
+                    <li>
+                        <a href="#Portfolio">Portfolio</a>
+                        <a href="#Portfolio" class="base">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#Blog">Blog</a>
+                        <a href="#Blog" class="base">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#Contact">Contact</a>
+                        <a href="#Contact" class="base">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+            <h1 class="ico"><a href="#">小尾巴</a></h1>
+        </div>
+    </div>
+    <canvas id="Meteor">
+    </canvas>
+    <script src="js/rain.js"></script>
+    <div class="bannerinfo">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="2">我是一名嗷嗷待哺的学生</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <th>NAME</th>
+                    <td>蒋伟</td>
+                </tr>
+                <tr>
+                    <th>BIRTHDAY</th>
+                    <td>1999-10-02</td>
+                </tr>
+                <tr>
+                    <th>TEL</th>
+                    <td>15107027685</td>
+                </tr>
+                <tr>
+                    <th>ADDRESS</th>
+                    <td>江西九江</td>
+                </tr>
+                <tr>
+                    <th>E-MAIL</th>
+                    <td>1809731077@qq.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="photo">
+        </div>
+    </div>
+
+    <div class="longinfo clearfix" id=about>
+        <div class=" outbox clearfix">
+            <ul class="lunbo clearfix">
+                <li>
+                    <h3>您好！我叫蒋伟</h3>
+                    <p>我喜欢敲代码</p>
+                    <p>不善言辞</p>
+                    <p>诚实守信</p>
+                    <p>团队精神</p>
+                </li>
+                <li>
+                    <h3>在校获得的荣誉</h3>
+                    <p>奖学金</p>
+                    <p>励志奖学金</p>
+                    <p>院网页设计技能竞赛一等奖</p>
+                    <p>院网络配置技能竞赛一等奖</p>
+                </li>
+                <li>
+                    <h3>职业技能证书</h3>
+                    <p>1+x WEB前端中级证书</p>
+                    <p>普通话二级甲等</p>
+                    <p>CCNA(暂未获取)</p>
+                    <p>CCNP(暂未获取)</p>
+                </li>
+                <li>
+                    <h3>您好！我叫蒋伟</h3>
+                    <p>我喜欢敲代码</p>
+                    <p>不善言辞</p>
+                    <p>诚实守信</p>
+                    <p>团队精神</p>
+                </li>
+            </ul>
+
+        </div>
+        <div class="point">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+    <script>
+       
+            var index = 0; 
+            var lunbo = document.getElementsByClassName('lunbo')[0];
+            var allpoint = document.getElementsByClassName('point')[0].children;
+            allpoint[index].style.backgroundColor = '#F5275F';
+
+         
+            
+            for(var i = 0 ; i < allpoint.length ; i++){
+                
+                allpoint[i].index = i;
+                allpoint[i].onclick = function(){
+                    clearInterval(playtimer);
+                    index = this.index;
+                    animation(lunbo,"left",-400*index,15,function(){
+                        autoplay();
+                    });
+                 
+                    setpoint(); 
+                   
+                }
+               
+            }
+            autoplay();
+            var playtimer ;
+            function autoplay(){
+                playtimer = setInterval(() => {
+                    index++;
+                    index %= lunbo.children.length;
+                    animation(lunbo,"left",-400*index,15,function(){
+                        setpoint();
+                    });
+                }, 3000);
+
+            }
+            function setpoint(){
+                if(index >= lunbo.children.length-1){
+                    index=0;
+                    lunbo.style.left = 0;
+                }
+                for(var i=0 ; i<allpoint.length ; i++){
+                    allpoint[i].style.backgroundColor = "";
+                }
+                allpoint[index].style.backgroundColor = "#F5275F";
+            }
+
+
+
+
+
+
+        var can = document.querySelector('.canvas');
+        var prn = can.getContext();
+        
+
+
+    </script>
+    <div class="jnys" id='Services'>
+
+        <ul class="title">
+            <li></li>
+            <li>我<span>擅长</span></li>
+            <li></li>
+        </ul>
+        <ul class="item">
+            <li>
+                <div class="icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="text">
+                    <h3>网页设计</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum culpa hic cum. Facere ipsum deleniti aliquam, voluptatum, harum repudiandae distinctio minima iusto, quia cum nostrum nihil quae nobis quas! Ducimus.
+                </div>
+            </li>
+            <li>
+                <div class="icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div class="text">
+                    <h3>网络设配置</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit assumenda recusandae magni odit eaque doloremque libero itaque ut cupiditate, necessitatibus, quae quod impedit animi voluptas illo porro corporis mollitia velit.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="icon">
+                    <i class="fa fa-subscript"></i>
+                </div>
+                <div class="text">
+                    <h3>熟悉PHP</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sapiente quibusdam eveniet quas, illo id amet ad temporibus necessitatibus, harum mollitia placeat recusandae. Optio commodi doloribus odit, nihil natus autem.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="text">
+                    <h3>熟悉Mysql</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis placeat eaque quos id voluptates deleniti! Consectetur at eaque facere libero, suscipit, expedita iusto reiciendis magni, obcaecati sapiente officiis reprehenderit consequuntur.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="gzll" id="Experience">
+        <ul class="title">
+            <li></li>
+            <li>奋斗过的<span>公司</span></li>
+            <li></li>
+        </ul>
+        <ul class="item">
+            <li>2019</li>
+            <li><i class="fas fa-briefcase"></i></li>
+            <li>
+                <h3>申通快递</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio quae quia aspernatur temporibus, quidem tempora nesciunt facere magni saepe adipisci repellat rem, veniam officiis atque itaque voluptates inventore nihil!</p> 
+            </li>
+        </ul>
+        <ul class="item">
+            <li>2020</li>
+            <li><i class="fas fa-briefcase" style="background-color: #eb5424;"></i></li>
+            <li><h3>正威集团</h3><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ex maxime modi pariatur! Quis sint iusto sunt quos cum non incidunt? Dolorum voluptates saepe perspiciatis perferendis optio modi eius id?</p></li>
+        </ul>
+        <ul class="item">
+            <li>2021</li>
+            <li><i class="fas fa-briefcase" style="background-color: #bb1e10;"></i></li>
+            <li>
+                <h3>人本集团</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, quod dolorem? Cum beatae iste nostrum minus unde debitis repellendus saepe similique, minima ipsam autem quasi optio quas repellat hic id!</p>
+            </li>
+        </ul>
+    </div>
+    <div class="zpzs" id=Portfolio>
+        <ul class="title">
+            <li></li>
+            <li>案例<span>截图</span></li>
+            <li></li>
+        </ul>
+        <ul class="btu clearfix">
+            <li><a href="javascript:;">所有</a></li>
+            <li><a href="javascript:;">网页设计</a></li>
+            <li><a href="javascript:;">网络配置</a></li>
+            <li><a href="javascript:;">Kali渗透</a></li>
+        </ul>
+        <div class="img-list ">
+            <ul style="display: block;">
+                <li onclick="show()"><img src="img/zp1.png" alt="小米首页"></li>
+                <li onclick="show()"><img src="img/zp2.png" alt="京东首页"></li>
+                <li onclick="show()"><img src="img/zp3.png" alt="美图首页"></li>
+                <li onclick="show()"><img src="img/zp4.png" alt="内网穿透"></li>
+                <li onclick="show()"><img src="img/zp5.png" alt="网络配置"></li>
+                <li onclick="show()"><img src="img/zp6.png" alt="SQL注入"></li>
+            </ul>
+            <ul style="display: none;">
+                <li onclick="show()"><img src="img/zp1.png" alt="小米首页"></li>
+                <li onclick="show()"><img src="img/zp2.png" alt="京东首页"></li>
+                <li onclick="show()"><img src="img/zp3.png" alt="美图首页"></li>
+            </ul>
+            <ul  style="display: none;">
+                <li onclick="show()"><img src="img/zp4.png" alt="内网穿透"></li>
+                <li onclick="show()"><img src="img/zp5.png" alt="网络配置"></li>
+ 
+            </ul>
+            <ul style="display: none;">
+                <li onclick="show()"><img src="img/zp6.png" alt="SQL注入"></li>
+
+            </ul>
+        </div>
+    </div>
+    <!--弹窗start-->
+    <div class="bg" id='bg'>
+        <div id="top-right" onclick="hidder()">x</div>
+        <div class="box">
+            <div class="content">
+                <h3>小米首页</h3>
+                <img src="img/zp1.png"  alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ea accusantium officiis unde libero veritatis, ducimus quasi. Illum adipisci cupiditate nam eaque quod voluptatibus ab odit explicabo voluptate, dignissimos harum? Voluptatem rem, eligendi explicabo ipsa deserunt magnam fugiat sequi vitae autem excepturi deleniti a quaerat nihil, odit quam nobis porro qui facilis exercitationem mollitia! Inventore in repellendus sequi voluptatibus earum?</p>
+            </div>
+        </div>
+    </div>
+    <script>
+    var index=0;  
+    var btuarry = document.getElementsByClassName('btu')[0].children;
+    var imglist = document.getElementsByClassName('img-list')[0].children;  
+    btuarry[index].style.backgroundColor = "#F94C04";
+    btuarry[index].firstElementChild.style.color= "#fff";
+    for(var i = 0 ; i < btuarry.length ; i++){
+                
+        btuarry[i].index = i;
+
+        btuarry[i].onclick = function(){
+             var dis = imglist[this.index].style.display;
+             dis == "none" ? dis = "block" : "none";
+             imglist[this.index].style.display = dis;
+             index = this.index;
+             btuarry[this.index].style.backgroundColor = "#F94C04";
+             btuarry[index].firstElementChild.style.color= "#fff";
+             setimg();
+         }
+               
+    }
+
+    function setimg(){
+        
+        for(var i = 0 ; i < imglist.length ; i++){
+            if(i != this.index ){
+                imglist[i].style.display = "none"; 
+                btuarry[i].style.backgroundColor = "";
+                btuarry[i].firstElementChild.style.color= "";   
+            } 
+        }
+            imglist[this.index].style.display = dis;
+          
+    }
+
+    $(function(){
+    $('.bg').hide();
+    $('.img-list img').click(function(){
+       $('.content h3').text($(this).attr("alt"));
+       $('.content img').attr("src",$(this).attr("src"));
+        $('.bg').fadeIn(300);
+        $(document.body).css({
+                        "overflow-x":"hidden",
+                        "overflow-y":"hidden"
+        });
+    })
+
+    $('#top-right').click(function(){
+        $('.bg').fadeOut(300);
+        $(document.body).css({
+                    "overflow-x":"auto",
+                    "overflow-y":"auto"
+        })   
+    })
+
+})
+
+        // function show() {
+        //     document.getElementById('bg').style.display = "";
+        // }
+
+        // function hidder() {
+        //     document.getElementById('bg').style.display = "none";
+        // }
+    </script>
+    <div class="blog" id="Blog">
+        <ul class="title">
+            <li></li>
+            <li>欢迎<span>访问</span></li>
+            <li></li>
+        </ul>
+        <div class="item clearfix">
+            <img src="img/zp4.png" alt="">
+            <ul>
+                <li>IPsec内网穿透</li>
+                <li><i class="fas fa-user"></i> <span>Admin</span> &nbsp<i class="fas fa-comment-dots"></i> <span>99 Comments</span> &nbsp<i class="fas fa-heart"></i> <span>999 Likes</span> &nbsp<i class="fas fa-tags"></i> <span>3 Tags</span></li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum animi quae sequi ducimus qui tempora veritatis labore dolore minus, ab eaque. Magni, aperiam voluptates. Tenetur voluptates modi minima veritatis in.</li>
+                <li class = "tc3"><a href="javascript:;">More</a></li>
+            </ul>
+        </div>
+        <div class="item clearfix">
+            <ul>
+                <li>SQL注入</li>
+                <li><i class="fas fa-user"></i> <span>Admin</span> &nbsp<i class="fas fa-comment-dots"></i> <span>99 Comments</span> &nbsp<i class="fas fa-heart"></i> <span>999 Likes</span> &nbsp<i class="fas fa-tags"></i> <span>3 Tags</span></li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum animi quae sequi ducimus qui tempora veritatis labore dolore minus, ab eaque. Magni, aperiam voluptates. Tenetur voluptates modi minima veritatis in.</li>
+                <li class = "tc3"><a href="javascript:;">More</a></li>
+            </ul>
+            <img src="img/zp6.png" alt="">
+        </div>
+        <div class="item clearfix">
+            <img src="img/zp3.png" alt="">
+            <ul>
+                <li>响应式布局</li>
+                <li><i class="fas fa-user"></i> <span>Admin</span> &nbsp<i class="fas fa-comment-dots"></i> <span>99 Comments</span> &nbsp<i class="fas fa-heart"></i> <span>999 Likes</span> &nbsp<i class="fas fa-tags"></i> <span>3 Tags</span></li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum animi quae sequi ducimus qui tempora veritatis labore dolore minus, ab eaque. Magni, aperiam voluptates. Tenetur voluptates modi minima veritatis in.</li>
+                <li class = "tc3" onclick="show()"><a href="javascript:;">More</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 弹窗start -->
+    <div class="zhezhao" id='zhezhao'>
+        <div class="tankuang">
+            <div id="header">
+                <div id="header-right">x</div>
+            </div>
+            <div class="content">
+                <img src="img/zp3.png"  alt="">
+                <h3>响应式布局</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ea accusantium officiis unde libero veritatis, ducimus quasi. Illum adipisci cupiditate nam eaque quod voluptatibus ab odit explicabo voluptate, dignissimos harum? Voluptatem rem, eligendi explicabo ipsa deserunt magnam fugiat sequi vitae autem excepturi deleniti a quaerat nihil, odit quam nobis porro qui facilis exercitationem mollitia! Inventore in repellendus sequi voluptatibus earum?</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+               $('.tc3').click(function(){
+
+                if($(this).siblings(":first").text()=='响应式布局'){
+                    $(".content img").attr("src", "img/zp3.png");
+                }else if($(this).siblings(":first").text()=='SQL注入'){
+                    $(".content img").attr("src", "img/zp6.png");
+                }else{
+                    $(".content img").attr("src", "img/zp4.png");
+                }
+                 
+                $(".content h3").text($(this).siblings(":first").text());
+
+                    $('#zhezhao').show();
+                    $('.tankuang').hide();
+                   $('.tankuang').slideDown(300);
+                   $(document.body).css({
+                        "overflow-x":"hidden",
+                        "overflow-y":"hidden"
+                    });
+               })
+
+               i
+
+
+
+
+               $('#header-right').click(()=>{
+                    $('.tankuang').slideUp(300,function(){
+                        $('#zhezhao').hide();
+                    });
+                    $(document.body).css({
+                    "overflow-x":"auto",
+                    "overflow-y":"auto"
+                    })   
+               })
+
+
+
+            
+            
+        })
+
+
+        document.getElementById('zhezhao').style.display = "none";
+
+            // function show() {
+            //     document.getElementById('zhezhao').style.display = "";
+
+            // }
+
+            // function hidder() {
+            //     document.getElementById('zhezhao').style.display = "none";
+            // }
+
+
+    </script>
+    <!-- 弹窗end -->
+    <div class="tellme" id=Contact>
+        <ul class="title">
+            <li></li>
+            <li>欢迎<span>电话 Or 邮件</span></li>
+            <li></li>
+        </ul>
+        <div>
+            <div class="clearfix">
+                <ul>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <h3>邮件</h3>
+                        <p>Mail: <a href="javascript:;">1809731077@qq.com</a> </p>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <h3 >电话</h3>
+                        <p>Tel:15107027685 </p>
+                    </li>
+                    <li>
+                        <i class="fas fa-home"></i>
+                        <h3>住址</h3>
+                        <p>
+                            上海市
+                            奉贤区
+                            奉城镇
+                            德胜路69号
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <form action="#" method="POST">
+                <input type="text" name="Name" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" required="">
+                <input type="email" name="Email" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">
+                <input type="text" name="Mobile number" value="Mobile number" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+                <textarea name="Message..." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Message...';}" required=""></textarea>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer clearfix">
+        <h3>@ 2021 smallTail.com</h3>
+        <ul class="clearfix">
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-weibo"></i></li>
+            <li><i class="fab fa-github"></i></li>
+        </ul>
+        
+    </div>
+    <div class="up">
+        <a class="fas fa-long-arrow-alt-up" href="#home"></a>
+    </div>
+    <script>
+        $(function(){
+            $('.menu .item').on('click', 'a', function (event) {
+                event.preventDefault();
+                $('html').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+             })
+             $('.up').on('click',function() {
+                $('html').animate({
+                    scrollTop: 0
+                }, 1000);
+                })
+            })
+    </script>
+</body>
+</html>
