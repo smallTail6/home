@@ -96,7 +96,7 @@ html {
 }
 .bannerinfo tbody tr:first-child::after {
   left: 105px;
-  top: -50px;
+  top: -18%;
   padding: 10px 15px;
   font-size: 15px;
 }
@@ -109,7 +109,7 @@ html {
   border-width: 15px;
   border-color: #F94C04 transparent transparent transparent;
   left: 121px;
-  top: -20px;
+  top: -8%;
 }
 .bannerinfo .photo {
   position: absolute;
