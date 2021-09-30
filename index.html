@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>蒋伟的个人简历</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-select:0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-select:0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,adress=no">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="fonticon/css/all.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Mobile.css" media="screen  and (max-width:1000px)">
     <script src="js/tools.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
 </head>
@@ -24,7 +24,7 @@
         <div class="top-bar">
             <div class="menu">
                 <div>
-                    <a href="#"><img src="img/menu-i.png" alt=""></a>
+                    <a href="javascript:;" class="btu1" ><img src="img/menu-i.png" alt=""></a>
                 </div>
                 <ul class="item">
                     <li><i class="fas fa-times"></i></li>
@@ -60,6 +60,7 @@
                 </ul>
             </div>
             <h1 class="ico"><a href="#">小尾巴</a></h1>
+            <div class="user"><i class="fas fa-user"></i></div>
         </div>
     </div>
     <canvas id="Meteor">
@@ -147,10 +148,7 @@
             var allpoint = document.getElementsByClassName('point')[0].children;
             allpoint[index].style.backgroundColor = '#F5275F';
 
-         
-            
             for(var i = 0 ; i < allpoint.length ; i++){
-                
                 allpoint[i].index = i;
                 allpoint[i].onclick = function(){
                     clearInterval(playtimer);
@@ -158,11 +156,8 @@
                     animation(lunbo,"left",-400*index,15,function(){
                         autoplay();
                     });
-                 
-                    setpoint(); 
-                   
-                }
-               
+                    setpoint();   
+                } 
             }
             autoplay();
             var playtimer ;
@@ -185,7 +180,11 @@
                     allpoint[i].style.backgroundColor = "";
                 }
                 allpoint[index].style.backgroundColor = "#F5275F";
-            }   
+            }
+
+
+        // var can = document.querySelector('.canvas');
+        // var prn = can.getContext();
     </script>
     <div class="jnys" id='Services'>
 
@@ -194,10 +193,10 @@
             <li>我<span>擅长</span></li>
             <li></li>
         </ul>
-        <ul class="item">
-            <li>
-                <div class="icon">
-                    <i class="fas fa-edit"></i>
+        <ul class="item clearfix">
+            <li class="">
+                <div class="icon ">
+                    <i class="fas fa-edit "></i>
                 </div>
                 <div class="text">
                     <h3>网页设计</h3>
@@ -371,6 +370,45 @@
         })   
     })
 
+    $('.btu1').click(function(){
+        event.preventDefault();
+        $('.menu .item').css("transform"," translateX(0)");
+    });
+
+    $('.menu .item:first').click(function(){
+        // event.preventDefault();
+        $('.menu .item').css("transform"," translateX(-100%)");
+    });
+
+    $('.user').click(function(){
+        
+        // var dis = $('.photo').css('display')=='none' ? 'block' : 'none';
+        // $('.photo').css('display',dis);
+        if($('.photo').css('display')=='none'){
+            $('.photo').css('display','block');
+            $('.photo').animate({
+            left: 50,
+        },1000,function(){
+            $('.photo').css('display','none');
+            $('.photo').slideDown(function(){
+                $('.photo').css('transform','rotateY(360deg)');
+                
+            });
+        })
+
+        }else{
+            $('.photo').slideUp(function(){
+                $('.photo').css('left','110%');
+                $('.photo').css('transform','rotateY(0deg)');
+            });
+        }
+
+        var color = $(this).css('color')=='rgb(249, 76, 4)' ? '#fff' : '#F94C04';
+        $(this).css("color",color);
+  
+    })
+
+
 })
 
         // function show() {
@@ -465,10 +503,24 @@
                     "overflow-y":"auto"
                     })   
                })
+
+
+
+            
             
         })
 
+
         document.getElementById('zhezhao').style.display = "none";
+
+            // function show() {
+            //     document.getElementById('zhezhao').style.display = "";
+
+            // }
+
+            // function hidder() {
+            //     document.getElementById('zhezhao').style.display = "none";
+            // }
 
 
     </script>
