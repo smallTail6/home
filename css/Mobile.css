@@ -85,7 +85,6 @@ html {
 .bannerinfo {
   width: 95%;
   padding-bottom: 30px;
-  position: relative;
 }
 .bannerinfo table {
   width: 100%;
@@ -98,7 +97,7 @@ html {
 .bannerinfo tbody tr:first-child::after {
   left: 50%;
   transform: translateX(-50%);
-  top: -18%;
+  top: 0px;
   padding: 10px 15px;
   font-size: 15px;
 }
@@ -112,7 +111,7 @@ html {
   border-color: #F94C04 transparent transparent transparent;
   left: 50%;
   transform: translateX(-50%);
-  top: -8%;
+  top: 30px;
 }
 .bannerinfo .photo {
   position: absolute;
